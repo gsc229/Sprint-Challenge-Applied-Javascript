@@ -57,29 +57,32 @@ function cardCreator(article) {
   const cardHeadline = document.createElement("div");
   const author = document.createElement("div");
   const imgContainer = document.createElement("div");
-  const img = document.createElement("img");
+  const image = document.createElement("img");
   const authSpan = document.createElement("span");
-  // append appropriately
-  card.appendChild(cardHeadline);
-  card.appendChild(author);
-  author.appendChild(imgContainer);
-  author.appendChild(authSpan);
-  imgContainer.appendChild(img);
-
   // add the classes
   card.classList.add("card");
   cardHeadline.classList.add("headline");
   author.classList.add("author");
   imgContainer.classList.add("img-container");
 
+  // append appropriately
+  card.appendChild(cardHeadline);
+  card.appendChild(author);
+  author.appendChild(imgContainer);
+  imgContainer.appendChild(image);
+  author.appendChild(authSpan);
+  console.log(card);
+  //imgContainer.appendChild(image);
+
   // fill it with the content
   cardHeadline.textContent = article.headline;
-  author.textContent = `By: ${article.authorName}`;
+
+  authSpan.textContent = `By: ${article.authorName}`;
   const photoPath = article.authorPhoto;
-  console.log(photoPath);
+  /*  console.log(photoPath);
   const photoNoDot = photoPath.replace(".", "");
-  console.log(photoPath.replace(".", ""));
-  img.src = photoNoDot;
+  console.log(photoPath.replace(".", "")); */
+  image.src = `${photoPath}`;
 
   // don't forget to return the card:
   return card;
