@@ -300,6 +300,6 @@ body {
   transform: translate(0, -50%);
 }
 .carousel img {
-  width: 100%;
-  display: none;
+  width: 50%;
+  margin: 50px auto;
 }

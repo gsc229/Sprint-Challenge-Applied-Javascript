@@ -17,3 +17,55 @@
     <div class="right-button"> > </div>
   </div>
 */
+const carouselImgSrcs = [
+  "./assets/carousel/mountains.jpeg",
+  "./assets/carousel/computer.jpeg",
+  "./assets/carousel/trees.jpeg",
+  "./assets/carousel/turntable.jpeg"
+];
+
+const carouselContainer = document.querySelector(".carousel-container");
+
+carouselContainer.appendChild(crateCarousel(carouselImgSrcs));
+
+function crateCarousel(imgsSrc) {
+  const carousel = document.createElement("div");
+  const leftBtn = document.createElement("div");
+  const rightBtn = document.createElement("div");
+  const image = document.createElement("img");
+  // add classes:
+  carousel.classList.add("carousel");
+  leftBtn.classList.add("left-button");
+  rightBtn.classList.add("right-button");
+  // add content:
+  leftBtn.textContent = "<";
+
+  rightBtn.textContent = ">";
+  // append:
+  carousel.appendChild(leftBtn);
+  carousel.appendChild(image);
+  carousel.appendChild(rightBtn);
+  // addEevntListeners
+  leftBtn.addEventListener("click", leftArrow);
+  rightBtn.addEventListener("click", rightArrow);
+  let currentImgage = 0;
+  image.src = imgsSrc[currentImgage];
+  function leftArrow() {
+    if (currentImgage !== 0) {
+      currentImgage -= 1;
+      image.src = imgsSrc[currentImgage];
+      console.log(currentImgage);
+    }
+  }
+
+  function rightArrow() {
+    if (currentImgage !== imgsSrc.length - 1) {
+      currentImgage += 1;
+      image.src = imgsSrc[currentImgage];
+      console.log(currentImgage);
+    }
+  }
+
+  console.log(carousel);
+  return carousel;
+}

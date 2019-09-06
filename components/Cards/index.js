@@ -29,8 +29,8 @@ axios
   .get("https://lambda-times-backend.herokuapp.com/articles")
   .then(response => {
     let currnetTopics = response.data.articles;
-    console.log(`topicsArray: ${topicsArray}`);
-    console.log(currnetTopics);
+    //console.log(`topicsArray: ${topicsArray}`);
+    //console.log(currnetTopics);
     newTopicsArr.forEach(topic => {
       let topicArticles = currnetTopics[topic];
       topicArticles.forEach(article => {
@@ -71,7 +71,7 @@ function cardCreator(article) {
   author.appendChild(imgContainer);
   imgContainer.appendChild(image);
   author.appendChild(authSpan);
-  console.log(card);
+  //console.log(card);
   //imgContainer.appendChild(image);
 
   // fill it with the content
@@ -87,3 +87,5 @@ function cardCreator(article) {
   // don't forget to return the card:
   return card;
 }
+
+/* restructring es6 syntax  */
