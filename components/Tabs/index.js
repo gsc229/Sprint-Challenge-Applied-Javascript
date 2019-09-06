@@ -16,7 +16,7 @@ axios
     topicsArray.forEach(topic => {
       topicsSection.appendChild(topicCreator(topic));
     });
-    console.log(topicsArray);
+    //console.log(topicsArray);
   })
 
   .catch(error1 => {
