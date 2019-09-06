@@ -33,6 +33,8 @@ function crateCarousel(imgsSrc) {
   const leftBtn = document.createElement("div");
   const rightBtn = document.createElement("div");
   const image = document.createElement("img");
+  const leftImage = document.createElement("img");
+  const rightImage = document.createElement("img");
   // add classes:
   carousel.classList.add("carousel");
   leftBtn.classList.add("left-button");
@@ -43,32 +45,58 @@ function crateCarousel(imgsSrc) {
   rightBtn.textContent = ">";
   // append:
   carousel.appendChild(leftBtn);
+  carousel.appendChild(leftImage);
   carousel.appendChild(image);
+  carousel.appendChild(rightImage);
+
   carousel.appendChild(rightBtn);
   // addEevntListeners
   leftBtn.addEventListener("click", leftArrow);
   rightBtn.addEventListener("click", rightArrow);
-  let currentImgage = 0;
-  image.src = imgsSrc[currentImgage];
+  let currentImageL = 0;
+  let currentImage = 1;
+  let currentImageR = 2;
+
+  leftImage.src = imgsSrc[currentImageL];
+  image.src = imgsSrc[currentImage];
+  rightImage.src = imgsSrc[currentImageR];
   function leftArrow() {
-    if (currentImgage !== 0) {
-      currentImgage -= 1;
-      image.src = imgsSrc[currentImgage];
-      console.log(currentImgage);
+    if (currentImageL !== 0) {
+      currentImageL -= 1;
+      currentImage -= 1;
+      currentImageR -= 1;
+      // will need to add and remvoe css classes here as well:
+      leftImage.src = imgsSrc[currentImageL];
+      image.src = imgsSrc[currentImage];
+      rightImage.src = imgsSrc[currentImageR];
+      console.log(currentImage);
     } else {
-      currentImgage = imgsSrc.length - 1;
-      image.src = imgsSrc[currentImgage];
+      currentImageL = imgsSrc.length - 3;
+      currentImage = imgsSrc.length - 2;
+      currentImageR = imgsSrc.length - 1;
+      leftImage.src = imgsSrc[currentImageL];
+      image.src = imgsSrc[currentImage];
+      rightImage.src = imgsSrc[currentImageR];
     }
   }
 
   function rightArrow() {
-    if (currentImgage !== imgsSrc.length - 1) {
-      currentImgage += 1;
-      image.src = imgsSrc[currentImgage];
-      console.log(currentImgage);
+    if (currentImageR !== imgsSrc.length - 1) {
+      currentImageL += 1;
+      currentImage += 1;
+      currentImageR += 1;
+      // will need to add and remvoe css classes here as well:
+      leftImage.src = imgsSrc[currentImageL];
+      image.src = imgsSrc[currentImage];
+      rightImage.src = imgsSrc[currentImageR];
+      console.log(currentImage);
     } else {
-      currentImgage = 0;
-      image.src = imgsSrc[currentImgage];
+      currentImageL = 0;
+      currentImage = 1;
+      currentImageR = 2;
+      leftImage.src = imgsSrc[currentImageL];
+      image.src = imgsSrc[currentImage];
+      rightImage.src = imgsSrc[currentImageR];
     }
   }
 

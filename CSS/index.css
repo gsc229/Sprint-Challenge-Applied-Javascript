@@ -262,6 +262,7 @@ body {
   position: relative;
   overflow: hidden;
   margin-top: 16px;
+  border: 5px solid black;
 }
 @media (min-width: 1200px) {
   .carousel {
@@ -301,5 +302,5 @@ body {
 }
 .carousel img {
   width: 50%;
-  margin: 50px auto;
+  margin: 10px 30px;
 }
