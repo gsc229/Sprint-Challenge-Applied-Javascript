@@ -55,6 +55,9 @@ function crateCarousel(imgsSrc) {
       currentImgage -= 1;
       image.src = imgsSrc[currentImgage];
       console.log(currentImgage);
+    } else {
+      currentImgage = imgsSrc.length - 1;
+      image.src = imgsSrc[currentImgage];
     }
   }
 
@@ -63,6 +66,9 @@ function crateCarousel(imgsSrc) {
       currentImgage += 1;
       image.src = imgsSrc[currentImgage];
       console.log(currentImgage);
+    } else {
+      currentImgage = 0;
+      image.src = imgsSrc[currentImgage];
     }
   }
 
